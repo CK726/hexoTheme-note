@@ -1,0 +1,89 @@
+<section id="archive">
+    <div class="mainbody">
+        <div id="article">
+            <% page.posts.forEach(function(post){ %>
+                <article class="article" >
+                    <a href="<%- url_for(post.path) %>" class="title"><%- post.title %></a>
+                    <%- post.excerpt %>
+                    <a href="<%- url_for(post.path) %>#more" class="rmore"><%= theme.excerpt_link %></a>
+                </article>
+            <% }) %>
+        </div>
+        <div id="sidebar">
+            <p class="postlist">本页文章列表：</p>
+            <% page.posts.forEach(function(post){ %>
+                <div class="postmenu">
+                    <a href="<%- url_for(post.path) %>" class="listtitle"><%- post.title %></a>
+                    <%- post.date %>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+
+<style type="text/css">
+    .mainbody{
+        height: 100%;
+        background-color: aqua;
+    }
+    
+    #archive{ 
+        display: inline-block;
+        margin-bottom: 20px;
+        height: 100%;
+        margin-left: 6%;
+       
+    }
+    #article{
+        display: inline-block;
+        float: left;
+    }
+    #sidebar{
+        display: inline-block;
+        float: right;
+        visibility: hidden;
+        width: 30%;
+        margin-top: 5%;
+        margin-right: 2%;
+        
+    }
+    .article{
+        margin: 30px 0px 0px 0px;
+    }
+    .rmore{
+        color: #e06c75;
+        font-size: 15px;
+    }
+    .title{
+        color: #e06c75;
+        font-size: 20px;
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload=function(){
+        var h2=document.documentElement.clientHeight;
+        var w2=document.documentElement.clientWidth;
+        if(w2 <= 800){
+            document.getElementById("article").style.width="94%";
+            document.getElementById("sidebar").style.visibility="hidden";
+        }else{
+            document.getElementById("article").style.width="60%";
+            document.getElementById("sidebar").style.visibility="visible";
+        }; 
+        document.getElementById("archive").style.minHeight=h2+"px";
+    }
+    window.onresize=function(){
+        var w21=document.documentElement.clientWidth;
+        if(w21 <= 800){
+            document.getElementById("article").style.width="94%";
+            document.getElementById("sidebar").style.visibility="hidden";
+        }else{
+            document.getElementById("article").style.width="60%";
+            document.getElementById("sidebar").style.visibility="visible";
+        }; 
+        
+    }
+</script>
+

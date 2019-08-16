@@ -1,0 +1,46 @@
+<div id="content">
+    <div class="title2">
+        <%- page.title %>
+    </div>
+    <div class="content">
+        <%- page.content %>
+    </div>
+</div>
+
+<style type="text/css">
+    #content{
+        width: 88%;
+        height: 100%;
+        margin: 30px 10px 30px 6%;
+    }
+    .title2{
+        width: 100%;
+        font-size: 20px;
+        color: #e06c75;
+        padding-bottom: 20px;
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload=function(){
+        var h1=document.documentElement.clientHeight;
+        document.getElementById("content").style.minHeight=h1+"px";
+        var w1=document.documentElement.clientWidth;
+        if(w1 <= 800){
+            document.getElementById("content").style.width="94%";
+        }else{
+            document.getElementById("content").style.width="60%";
+            document.getElementById("content").style.marginLeft="20%";
+        }; 
+    }
+    window.onresize=function(){
+        var w10=document.documentElement.clientWidth;
+        if(w10 <= 800){
+            document.getElementById("content").style.width="94%";
+        }else{
+            document.getElementById("content").style.width="60%";
+            document.getElementById("content").style.marginLeft="20%";
+        }; 
+        
+    }
+</script>

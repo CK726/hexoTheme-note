@@ -1,0 +1,62 @@
+<header class="header"> 
+    <nav>
+        <div class="Xblog">
+            <img src="http://localhost:4000/images/logo.png" class="logo">
+            <a href="/" class="Xblog_a">
+                
+                <span class="logo">X blog</span>
+            </a>
+            <span class="menu_po">
+                <% for (name in theme.menu) { %>
+                    <a href="<%- url_for(theme.menu[name]) %>" class="menu" ><%= name %></a>
+                <% } %>
+            </span>
+    </nav>
+
+</header>
+
+<style type="text/css">
+    a{
+        text-decoration-line: none;
+        color: #e06c75;
+    }
+    .Xblog_a:hover{
+        color: #1a6caf;
+    }
+    *{
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+    }
+    .Xblog{
+        font-size: 20px;
+        text-transform: uppercase;
+        margin: 0px;
+        margin-left: 8%;
+    }
+    div.Xblog{
+        position: relative;
+        top: 15px;
+    }
+    .menu:hover{
+        color: #1a6caf;
+    }
+    .menu_po{
+        float: right;
+        margin-right: 20px;
+    }
+    .header{
+        height: 48px;
+        width: 100%;
+        left: 0px;
+        opacity: 1;
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 20px;
+        z-index: 233;
+        overflow: hidden;
+    }
+    img.logo{
+        position: relative;
+        top: 2px;
+    }
+</style>
