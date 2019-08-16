@@ -7,6 +7,7 @@
                     <%- post.excerpt %>
                     <a href="<%- url_for(post.path) %>#more" class="rmore"><%= theme.excerpt_link %></a>
                 </article>
+                <div style="background-color: rgba(150, 142, 142, 0.568); height:1px; width:80%;"></div>
             <% }) %>
         </div>
         <div id="sidebar">
@@ -14,15 +15,41 @@
             <% page.posts.forEach(function(post){ %>
                 <div class="postmenu">
                     <a href="<%- url_for(post.path) %>" class="listtitle"><%- post.title %></a>
-                    <%- post.date %>
+                    <span class="postdate"><%- date(post.date,'YYYY/MM/DD') %></span>
                 </div>
             <% }) %>
         </div>
-    </div>
+    </div>  
 </section>
+<% if (page.total > 1){ %>
+    <nav id="page-nav">
+      <% var prev_text = "&laquo; ";var next_text = " &raquo;"%>
+      <%- paginator({
+        prev_text: prev_text,
+        next_text: next_text
+      }) %>
+    </nav>
+  <% } %>
 
 
 <style type="text/css">
+    #page-nav{
+        text-align: center;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        letter-spacing: 10px;
+    }
+    .postmenu{
+        margin: 10px 10px 10px 10px;
+    }
+    .postdate{
+        color: rgba(150, 142, 142, 0.568);
+        margin-left: 20px;
+    }
+    .postlist{
+        color: rgba(150, 142, 142, 0.568);
+        margin: 10px 10px 10px 0px;
+    }
     .mainbody{
         height: 100%;
         background-color: aqua;
@@ -45,11 +72,12 @@
         visibility: hidden;
         width: 30%;
         margin-top: 5%;
-        margin-right: 2%;
+        margin-right: 3%;
         
     }
     .article{
         margin: 30px 0px 0px 0px;
+        padding-bottom: 20px;
     }
     .rmore{
         color: #e06c75;
