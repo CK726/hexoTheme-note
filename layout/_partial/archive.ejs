@@ -1,14 +1,15 @@
 <section id="archive">
-    <div class="mainbody">
         <div id="article">
             <% page.posts.forEach(function(post){ %>
                 <article class="article" >
-                    <a href="<%- url_for(post.path) %>" class="title"><%- post.title %></a>
-                    <span class="postdate"><%- date(post.date,'YYYY/MM/DD') %></span>
+                    <div class="titlecss">
+                        <a href="<%- url_for(post.path) %>" class="title"><%- post.title %></a>
+                        <span class="postdate"><%- date(post.date,'YYYY/MM/DD') %></span>
+                    </div>
                     <%- post.excerpt %>
                     <a href="<%- url_for(post.path) %>#more" class="rmore"><%= theme.excerpt_link %></a>
                 </article>
-                <div style="background-color: rgba(150, 142, 142, 0.568); height:1px; width:80%;"></div>
+                <div style="background-color: rgba(150, 142, 142, 0.568); height:1px; width:80%;margin-top: 1em"></div>
             <% }) %>
         </div>
         <div id="sidebar">
@@ -20,8 +21,7 @@
                     
                 </div>
             <% }) %>
-        </div>
-    </div>  
+        </div> 
 </section>
 <% if (page.total > 1){ %>
     <nav id="page-nav">
@@ -35,9 +35,13 @@
 
 
 <style type="text/css">
+    .titlecss{
+        margin-bottom: 1em
+    }
     #page-nav{
         text-align: center;
         margin-bottom: 2em;
+        margin-top: 2em;
         letter-spacing: 10px;
     }
     .postmenu{
@@ -51,14 +55,8 @@
         color: rgba(150, 142, 142, 0.568);
         margin: 10px 10px 10px 0px;
     }
-    .mainbody{
-        height: 100%;
-        background-color: aqua;
-    }
-    
     #archive{ 
         display: inline-block;
-        margin-bottom: 1%;
         height: 100%;
         margin-left: 6%;
        
@@ -70,7 +68,6 @@
     #sidebar{
         display: inline-block;
         float: right;
-        visibility: hidden;
         width: 30%;
         margin-top: 5%;
         margin-right: 3%;
@@ -78,7 +75,6 @@
     }
     .article{
         margin: 30px 0px 0px 0px;
-        padding-bottom: 1%;
     }
     .rmore{
         color: #e06c75;
@@ -96,10 +92,10 @@
         var w2=document.documentElement.clientWidth;
         if(w2 <= 800){
             document.getElementById("article").style.width="94%";
-            document.getElementById("sidebar").style.visibility="hidden";
+            document.getElementById("sidebar").style.display="none";
         }else{
             document.getElementById("article").style.width="60%";
-            document.getElementById("sidebar").style.visibility="visible";
+            document.getElementById("sidebar").style.display="inline-block";
         }; 
         document.getElementById("archive").style.minHeight=h2+"px";
     }
@@ -107,10 +103,10 @@
         var w21=document.documentElement.clientWidth;
         if(w21 <= 800){
             document.getElementById("article").style.width="94%";
-            document.getElementById("sidebar").style.visibility="hidden";
+            document.getElementById("sidebar").style.display="none";
         }else{
             document.getElementById("article").style.width="60%";
-            document.getElementById("sidebar").style.visibility="visible";
+            document.getElementById("sidebar").style.display="inline-block";
         }; 
         
     }
