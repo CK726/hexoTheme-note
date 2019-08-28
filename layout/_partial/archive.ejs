@@ -4,6 +4,7 @@
             <% page.posts.forEach(function(post){ %>
                 <article class="article" >
                     <a href="<%- url_for(post.path) %>" class="title"><%- post.title %></a>
+                    <span class="postdate"><%- date(post.date,'YYYY/MM/DD') %></span>
                     <%- post.excerpt %>
                     <a href="<%- url_for(post.path) %>#more" class="rmore"><%= theme.excerpt_link %></a>
                 </article>
@@ -14,8 +15,9 @@
             <p class="postlist">本页文章列表：</p>
             <% page.posts.forEach(function(post){ %>
                 <div class="postmenu">
-                    <a href="<%- url_for(post.path) %>" class="listtitle"><%- post.title %></a>
                     <span class="postdate"><%- date(post.date,'YYYY/MM/DD') %></span>
+                    <a href="<%- url_for(post.path) %>" class="listtitle"><%- post.title %></a>
+                    
                 </div>
             <% }) %>
         </div>
@@ -35,8 +37,7 @@
 <style type="text/css">
     #page-nav{
         text-align: center;
-        margin-bottom: 50px;
-        margin-top: 20px;
+        margin-bottom: 2em;
         letter-spacing: 10px;
     }
     .postmenu{
@@ -57,7 +58,7 @@
     
     #archive{ 
         display: inline-block;
-        margin-bottom: 20px;
+        margin-bottom: 1%;
         height: 100%;
         margin-left: 6%;
        
@@ -77,7 +78,7 @@
     }
     .article{
         margin: 30px 0px 0px 0px;
-        padding-bottom: 20px;
+        padding-bottom: 1%;
     }
     .rmore{
         color: #e06c75;
