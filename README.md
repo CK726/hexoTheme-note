@@ -1,2 +1,2 @@
 # hexoTheme-note
-用来练手的hexo主题
+主题预览：https://ck726.github.io/
